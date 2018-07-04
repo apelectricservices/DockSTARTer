@@ -1,19 +1,20 @@
 services:
-  privateinternetaccessqmcgaw:
+  piamcqgaw:
     image: qmcgaw/private-internet-access
-    container_name: privateinternetaccessqmcgaw
+    container_name: piamcqgaw
     cap_add:
       - NET_ADMIN
     devices:
       - /dev/net/tun
     networks:
       - pianet
+    network_mode: ${COUCHPOTATO_NETWORK_MODE}
     volumes:
-      - ${DOCKERCONFDIR}/privateinternetaccessqmcgaw/auth.conf:/auth.conf:ro
+      - ${DOCKERCONFDIR}/piamcqgaw/auth.conf:/auth.conf:ro
     environment:
-      - PROTOCOL=tcp
-      - ENCRYPTION=strong
-      - REGION=Germany
+      - PROTOCOL=${PIAMCQGAW_PROTOCOL}
+      - ENCRYPTION=${PIAMCQGAW_ENCRYPTION_STRENGTH}
+      - REGION=${PIAMCQGAW_REGION}
       - PGID=${PGID}
       - PUID=${PUID}
       - TZ=${TZ}

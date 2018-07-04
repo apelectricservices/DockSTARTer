@@ -1,0 +1,3 @@
+services:
+  piamcqgaw:
+    netmode:  ${PIAMCQGAW_NETWORK_MODE}
