@@ -10,6 +10,7 @@ cmd_install() {
     run_script 'install_compose' force
     run_script 'install_compose_completion'
     run_script 'setup_docker_group'
+    run_script 'setup_docker_remote'
     run_script 'enable_docker_systemd'
     run_script 'set_permissions'
     run_script 'request_reboot'
